@@ -1,0 +1,5 @@
+package com.difezoma.backend.entity;
+
+public class UserRole {
+
+}

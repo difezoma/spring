@@ -1,0 +1,37 @@
+package com.difezoma.backend.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.difezoma.backend.model.UserCredential;
+
+@Controller
+public class LoginController {
+	
+	@GetMapping("/")
+	public String root() {
+		return "redirect:/login";
+	}
+	
+	@GetMapping("/login")
+	public String login(Model model) {
+		model.addAttribute("userCredential", new UserCredential());
+		return "login";
+	}
+	
+	@PostMapping("/loginuser")
+	public String loginUser(@ModelAttribute UserCredential userCredential) {
+		
+		if(userCredential.getUsername().equals("user") && userCredential.getPassword().equals("user")) {
+			return "contacts";
+		}else {
+			return "redirect:/";
+		}
+		
+	}
+	
+
+}

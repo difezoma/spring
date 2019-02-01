@@ -1,0 +1,16 @@
+package com.difezoma.backend.repository;
+
+import java.io.Serializable;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.difezoma.backend.entity.Course;
+
+@Repository("courseJpaRepository")
+public interface CourseJpaRepository extends JpaRepository<Course, Serializable> {
+	
+	public abstract Course findByName(String name);
+
+}

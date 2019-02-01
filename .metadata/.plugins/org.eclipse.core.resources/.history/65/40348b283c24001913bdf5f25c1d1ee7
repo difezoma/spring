@@ -1,0 +1,38 @@
+package com.difezoma.backend.controller;
+
+import org.apache.juli.logging.LogFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.difezoma.backend.constant.ViewConstant;
+import com.difezoma.backend.model.ContactModel;
+
+@Controller
+@RequestMapping("/contacts")
+public class ContactController {
+	
+	public static final Log LOGGER = LogFactory.getLog(ContactController.class);
+	
+	@GetMapping("/contactform")
+	public String contactForm(Model model) {
+		model.addAttribute("contactModel", new ContactModel());
+		return ViewConstant.CONTACT_FORM;
+	}
+	
+	@GetMapping("/cancel")
+	public String cancel() {
+		return ViewConstant.CONTACTS;
+	}
+	
+	@PostMapping("/addcontact")
+	public String addContact(@ModelAttribute ContactModel contactModel) {
+		
+		
+		return ViewConstant.CONTACTS;
+	}
+
+}

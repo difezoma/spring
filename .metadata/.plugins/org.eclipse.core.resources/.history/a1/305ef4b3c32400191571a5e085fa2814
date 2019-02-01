@@ -1,0 +1,5 @@
+package com.difezoma.backend.component;
+
+public class ContactConverter {
+
+}

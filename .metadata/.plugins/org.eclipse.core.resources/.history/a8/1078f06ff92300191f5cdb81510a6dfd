@@ -1,0 +1,5 @@
+package com.difezoma.backend.converter;
+
+public class CourseConverter {
+
+}

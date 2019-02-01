@@ -1,0 +1,9 @@
+package com.difezoma.backend.service;
+
+import com.difezoma.backend.model.ContactModel;
+
+public interface ContactService {
+	
+	public abstract ContactModel addContact(ContactModel contactModel);
+
+}

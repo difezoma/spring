@@ -1,0 +1,50 @@
+package com.difezoma.backend.controller;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.difezoma.backend.constant.ViewConstant;
+import com.difezoma.backend.model.UserCredential;
+
+@Controller
+public class LoginController {
+	
+	private static final Log LOGGER = LogFactory.getLog(LoginController.class);
+	
+	@GetMapping("/")
+	public String root() {
+		LOGGER.info("METHOD: root() redirect to /login");
+		return "redirect:/login";
+	}
+	
+	@GetMapping("/login")
+	public String login(Model model, @RequestParam(required=false) String error, @RequestParam(required=false) String logout) {
+		LOGGER.info("METHOD: login() PARAMS: error - "+error+" logout - "+logout);
+		model.addAttribute("error", error);
+		model.addAttribute("logout", logout);
+		model.addAttribute("userCredential", new UserCredential());
+		LOGGER.info("METHOD: login() return /login");
+		return ViewConstant.LOGIN;
+	}
+	
+	@PostMapping("/loginuser")
+	public String loginUser(@ModelAttribute UserCredential userCredential) {
+		LOGGER.info("METHOD: loginUser() PARAMS: userCredential - "+userCredential.toString());
+		if(userCredential.getUsername().equals("user") && userCredential.getPassword().equals("user")) {
+			LOGGER.info("METHOD: loginUser() return /contacts");
+			return ViewConstant.CONTACTS;
+		}else {
+			LOGGER.info("METHOD: loginUser() return /login?error");
+			return "redirect:/login?error";
+		}
+		
+	}
+	
+
+}

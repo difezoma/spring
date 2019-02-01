@@ -1,0 +1,17 @@
+package com.difezoma.backend.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class ExerciseController {
+	
+	public static final String EXERCISE_VIEW = "exercise";
+	
+	@GetMapping("/exercise")
+	public String exercise() {
+		
+		return EXERCISE_VIEW;
+	}
+
+}

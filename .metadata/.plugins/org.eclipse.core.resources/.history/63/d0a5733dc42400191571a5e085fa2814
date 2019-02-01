@@ -1,0 +1,17 @@
+package com.difezoma.backend.service.implementation;
+
+import org.springframework.stereotype.Service;
+
+import com.difezoma.backend.model.ContactModel;
+import com.difezoma.backend.service.ContactService;
+
+@Service("contactServiceImplementation")
+public class ContactServiceImplementation implements ContactService {
+
+	@Override
+	public ContactModel addContact(ContactModel contactModel) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

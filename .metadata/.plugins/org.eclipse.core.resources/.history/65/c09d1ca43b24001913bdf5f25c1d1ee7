@@ -1,0 +1,18 @@
+package com.difezoma.backend.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.difezoma.backend.constant.ViewConstant;
+
+@Controller
+@RequestMapping("/contacts")
+public class ContactController {
+	
+	@GetMapping("/contactform")
+	public String contactForm() {
+		return ViewConstant.CONTACT_FORM;
+	}
+
+}

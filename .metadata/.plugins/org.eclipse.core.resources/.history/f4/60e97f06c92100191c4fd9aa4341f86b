@@ -1,0 +1,22 @@
+package com.difezoma.backend.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.difezoma.backend.model.Person;
+
+@Controller
+@RequestMapping("/form")
+public class FormController {
+	
+	public static final String SHOW_FORM = "showform";
+	
+	@GetMapping("/showform")
+	public String showForm(Model model) {
+		model.addAttribute("person", new Person());
+		return SHOW_FORM;
+	}
+
+}

@@ -1,0 +1,16 @@
+package com.difezoma.backend.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/exercise1")
+public class ExampleControllerThree {
+	
+	@GetMapping("/error")
+	public String error() {
+		return "404"; 
+	}
+
+}

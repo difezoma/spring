@@ -1,0 +1,25 @@
+package com.difezoma.backend.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="user_role")
+public class UserRole {
+	
+	@Id
+	@GeneratedValue
+	@Column(name="id")
+	private int id;
+	@ManyToOne(fetch = FetchType.LAZY)
+	private User user;
+	@Column(name="role")
+	private String role;
+	
+
+}

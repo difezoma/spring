@@ -1,0 +1,14 @@
+package com.difezoma.backend.controller;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class ExerciseController {
+	
+	public static final String EXERCISE_VIEW = "exercise";
+	
+	public String exercise() {
+		return EXERCISE_VIEW;
+	}
+
+}

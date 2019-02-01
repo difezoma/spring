@@ -1,0 +1,15 @@
+package com.difezoma.backend.component;
+
+import org.apache.commons.logging.Log;
+import org.springframework.stereotype.Component;
+
+@Component("exampleComponent")
+public class ExampleComponent {
+	
+	private static final Log LOGGER = LogFactory(ExampleComponent.class);
+	
+	public void sayHello() {
+		
+	}
+
+}

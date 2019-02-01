@@ -1,0 +1,5 @@
+package com.difezoma.backend.configuration;
+
+public class WebMvcConfiguration {
+
+}

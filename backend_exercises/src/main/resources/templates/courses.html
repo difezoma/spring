@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Courses</title>
+</head>
+<body>
+
+<h1>LIST OF AVAILABLE COURSES</h1>
+<table>
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>NAME</th>
+			<th>DESCRIPTION</th>
+			<th>PRICE</th>
+			<th>HOURS</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="course : ${courses}">
+			<td><span th:text="${course.id}"></span></td>
+			<td><span th:text="${course.name}"></span></td>
+			<td><span th:text="${course.description}"></span></td>
+			<td><span th:text="${course.price}"></span></td>
+			<td><span th:text="${course.hours}"></span></td>
+		</tr>
+	</tbody>
+</table>
+
+<h2>ADD NEW COURSE</h2>
+<form action="#" th:action="@{/courses/addcourse}" th:object="${newcourse}" method="post">
+	<input type="text" th:field="*{name}" /><br>
+	<input type="text" th:field="*{description}" /><br>
+	<input type="number" th:field="*{price}" /><br>
+	<input type="number" th:field="*{hours}" /><br>
+	<input type="submit" value="Submit New Course" />
+</form>
+
+<h2>UPDATE COURSE</h2>
+<form action="#" th:action="@{/courses/updatecourse}" th:object="${newcourse}" method="post">
+	<input type="number" th:field="*{id}" /><br>
+	<input type="text" th:field="*{name}" /><br>
+	<input type="text" th:field="*{description}" /><br>
+	<input type="number" th:field="*{price}" /><br>
+	<input type="number" th:field="*{hours}" /><br>
+	<input type="submit" value="Update Course" />
+</form>
+
+<h2>DELETE COURSE</h2>
+<form action="#" th:action="@{/courses/deletecourse}" th:object="${newcourse}" method="post">
+	<input type="number" th:field="*{id}" /><br>
+	<input type="submit" value="Delete Course" />
+</form>
+
+</body>
+</html>

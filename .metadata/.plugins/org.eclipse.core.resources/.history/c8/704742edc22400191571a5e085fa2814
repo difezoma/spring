@@ -1,0 +1,5 @@
+package com.difezoma.backend.service;
+
+public interface ContactService {
+
+}

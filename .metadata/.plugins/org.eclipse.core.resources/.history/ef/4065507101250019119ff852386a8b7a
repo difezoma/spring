@@ -1,0 +1,61 @@
+package com.difezoma.backend.service.implementation;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
+import com.difezoma.backend.component.ContactConverter;
+import com.difezoma.backend.entity.Contact;
+import com.difezoma.backend.model.ContactModel;
+import com.difezoma.backend.repository.ContactRepository;
+import com.difezoma.backend.service.ContactService;
+
+@Service("contactServiceImplementation")
+public class ContactServiceImplementation implements ContactService {
+	
+	@Autowired
+	@Qualifier("contactRepository")
+	ContactRepository contactRepository;
+	
+	@Autowired
+	@Qualifier("contactConverter")
+	ContactConverter contactConverter;
+
+	
+	@Override
+	public ContactModel addContact(ContactModel contactModel) {
+		Contact contact = contactRepository.save(contactConverter.model2Entity(contactModel));
+		return contactConverter.entity2Model(contact);
+	}
+
+	@Override
+	public List<ContactModel> listAllContacts() {
+		
+		List<Contact> contacts = contactRepository.findAll();
+		List<ContactModel> contactsModel = new ArrayList<ContactModel>();
+		
+		for(Contact contact:contacts) {
+			contactsModel.add(contactConverter.entity2Model(contact));
+		}
+		
+		return contactsModel;
+	}
+
+	@Override
+	public void removeContact(int id) {
+		Contact contact = contactRepository.findById(id);
+		if(contact != null) {
+			contactRepository.delete(contact);
+		}
+	}
+
+	@Override
+	public ContactModel findContactModelById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

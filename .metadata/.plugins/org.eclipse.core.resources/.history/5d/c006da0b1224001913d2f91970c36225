@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>My App</title>
+</head>
+<body>
+	<table>
+		<thead>
+			<th>NAME</th>
+			<th>AGE</th>
+		</thead>
+		<tbody th:each="person : ${people}">
+			<th th:text="${person.name}"></th>
+			<th th:text="${person.age}"></th>
+		</tbody>
+	</table>
+</body>
+</html>
